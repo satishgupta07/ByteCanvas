@@ -34,7 +34,7 @@ function Login() {
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
         <div className="mb-2 flex justify-center">
-          <span className="inline-block w-full max-w-[100px]">
+          <span className="inline-block w-full max-w-[150px]">
             <Logo width="100%" />
           </span>
         </div>
@@ -74,9 +74,7 @@ function Login() {
                 required: true,
               })}
             />
-            <Button type="submit" className="w-full">
-              Sign in
-            </Button>
+            <Button type="submit" className="w-full" btnText="Sign in" />
           </div>
         </form>
       </div>
