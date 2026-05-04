@@ -1,3 +1,137 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
+:root {
+  --color-primary:       #4F46E5; /* indigo-600 */
+  --color-primary-dark:  #4338CA; /* indigo-700 */
+  --color-primary-light: #EEF2FF; /* indigo-50  */
+  --color-bg:            #F8FAFC; /* slate-50   */
+  --color-surface:       #FFFFFF;
+  --color-text:          #0F172A; /* slate-900  */
+  --color-text-muted:    #64748B; /* slate-500  */
+  --color-border:        #E2E8F0; /* slate-200  */
+  --color-error:         #EF4444; /* red-500    */
+  --color-success:       #10B981; /* emerald-500 */
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Base reset & typography ────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Rich-text (post content) prose styles ──────────────────────────────────── */
+.prose-content {
+  font-size: 1.0625rem;
+  line-height: 1.85;
+  color: #1e293b; /* slate-800 */
+}
+
+.prose-content h1,
+.prose-content h2,
+.prose-content h3,
+.prose-content h4 {
+  margin-top: 1.75em;
+  margin-bottom: 0.6em;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-text);
+}
+
+.prose-content h1 { font-size: 2rem; }
+.prose-content h2 { font-size: 1.5rem; }
+.prose-content h3 { font-size: 1.25rem; }
+
+.prose-content p {
+  margin-bottom: 1.4em;
+}
+
+.prose-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-content a:hover {
+  color: var(--color-primary-dark);
+}
+
+.prose-content img {
+  border-radius: 10px;
+  max-width: 100%;
+  margin: 1.5em 0;
+}
+
+.prose-content blockquote {
+  border-left: 3px solid var(--color-primary);
+  padding-left: 1.25em;
+  margin: 1.5em 0;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.prose-content pre {
+  background: #1e293b;
+  color: #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25em;
+  overflow-x: auto;
+  font-size: 0.9rem;
+  margin: 1.5em 0;
+}
+
+.prose-content code {
+  background: #f1f5f9;
+  color: #be185d;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+.prose-content pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+.prose-content ul,
+.prose-content ol {
+  padding-left: 1.75em;
+  margin-bottom: 1.4em;
+}
+
+.prose-content li {
+  margin-bottom: 0.4em;
+}
+
+/* ── Custom scrollbar ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}

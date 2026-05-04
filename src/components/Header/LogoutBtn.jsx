@@ -7,16 +7,21 @@ import { useNavigate } from "react-router-dom";
 function LogoutBtn() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const logoutHandler = () => {
+
+  const handleLogout = () => {
     authService.logout().then(() => {
       dispatch(logout());
       navigate("/login");
     });
   };
+
   return (
     <button
-      className="inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
-      onClick={logoutHandler}
+      onClick={handleLogout}
+      className="ml-2 px-4 py-2 text-sm font-medium text-slate-600
+                 border border-slate-300 rounded-lg bg-white
+                 hover:bg-slate-50 hover:text-slate-900
+                 transition-colors duration-200"
     >
       Logout
     </button>

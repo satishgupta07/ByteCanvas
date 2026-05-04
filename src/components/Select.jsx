@@ -1,15 +1,36 @@
 import React, { useId } from "react";
 
-function Select({ options, label, className, ...props }, ref) {
+/**
+ * Styled select dropdown with label support.
+ * Uses forwardRef for react-hook-form compatibility.
+ */
+function Select({ options, label, className = "", ...props }, ref) {
   const id = useId();
+
   return (
     <div className="w-full">
-      {label && <label htmlFor={id} className=""></label>}
+      {label && (
+        <label
+          htmlFor={id}
+          className="block text-sm font-medium text-slate-700 mb-1.5"
+        >
+          {label}
+        </label>
+      )}
+
       <select
-        {...props}
         id={id}
         ref={ref}
-        className={`px-3 py-2 rounded-lg bg-white text-black outline-none focus:bg-gray-50 duration-200 border border-gray-200 w-full ${className}`}
+        className={`
+          w-full px-4 py-2.5 text-sm
+          bg-white text-slate-900
+          border border-slate-300 rounded-lg outline-none
+          cursor-pointer
+          transition-all duration-200
+          focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100
+          ${className}
+        `}
+        {...props}
       >
         {options?.map((option) => (
           <option key={option} value={option}>
