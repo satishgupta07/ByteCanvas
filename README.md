@@ -11,7 +11,7 @@ A modern blogging platform built with React, Vite, Tailwind CSS, and Appwrite.
 | State        | Redux Toolkit                     |
 | Backend/Auth | Appwrite                          |
 | Forms        | React Hook Form                   |
-| Editor       | TinyMCE                           |
+| Editor       | React Quill                       |
 
 ## Getting Started
 
@@ -34,7 +34,7 @@ VITE_APPWRITE_BUCKET_ID=
 
 - Sign up / login with Appwrite Auth
 - Create, edit, and delete blog posts
-- Rich-text editor (TinyMCE) with image support
+- Rich-text editor (React Quill) with image and media support
 - Featured image upload to Appwrite Storage
 - Active / inactive post status
 - Author-only edit and delete controls

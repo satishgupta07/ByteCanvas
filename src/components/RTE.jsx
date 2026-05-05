@@ -1,10 +1,32 @@
 import React from "react";
-import { Editor } from "@tinymce/tinymce-react";
+import ReactQuill from "react-quill-new";
+import "react-quill-new/dist/quill.snow.css";
 import { Controller } from "react-hook-form";
 
-/**
- * Controlled TinyMCE rich-text editor wired to react-hook-form via Controller.
- */
+const modules = {
+  toolbar: [
+    [{ header: [1, 2, 3, 4, 5, 6, false] }],
+    ["bold", "italic", "underline", "strike"],
+    [{ color: [] }, { background: [] }],
+    [{ list: "ordered" }, { list: "bullet" }],
+    [{ indent: "-1" }, { indent: "+1" }],
+    [{ align: [] }],
+    ["link", "image", "video"],
+    ["blockquote", "code-block"],
+    ["clean"],
+  ],
+};
+
+const formats = [
+  "header",
+  "bold", "italic", "underline", "strike",
+  "color", "background",
+  "list", "indent",
+  "align",
+  "link", "image", "video",
+  "blockquote", "code-block",
+];
+
 export default function RTE({ name, control, label, defaultValue = "" }) {
   return (
     <div className="w-full">
@@ -18,29 +40,14 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
         <Controller
           name={name || "content"}
           control={control}
-          render={({ field: { onChange } }) => (
-            <Editor
-              initialValue={defaultValue}
-              init={{
-                height: 480,
-                menubar: true,
-                skin: "oxide",
-                content_css: "default",
-                plugins: [
-                  "advlist", "autolink", "lists", "link", "image",
-                  "charmap", "preview", "anchor", "searchreplace",
-                  "visualblocks", "code", "fullscreen", "insertdatetime",
-                  "media", "table", "help", "wordcount",
-                ],
-                toolbar:
-                  "undo redo | blocks | bold italic forecolor | " +
-                  "alignleft aligncenter alignright alignjustify | " +
-                  "bullist numlist outdent indent | image media | " +
-                  "removeformat | help",
-                content_style:
-                  "body { font-family: Inter, Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.8; color: #1e293b; }",
-              }}
-              onEditorChange={onChange}
+          render={({ field: { onChange, value } }) => (
+            <ReactQuill
+              theme="snow"
+              value={value ?? defaultValue}
+              onChange={onChange}
+              modules={modules}
+              formats={formats}
+              style={{ height: 420 }}
             />
           )}
         />
