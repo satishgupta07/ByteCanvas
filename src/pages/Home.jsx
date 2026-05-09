@@ -59,20 +59,20 @@ function Home() {
 
   /* ── Posts grid ──────────────────────────────────────────────────────────── */
   return (
-    <div className="py-12">
+    <div className="py-8 sm:py-12">
       <Container>
         {/* Section heading */}
-        <div className="mb-10 text-center">
-          <h1 className="text-3xl font-bold text-slate-900 tracking-tight">
+        <div className="mb-8 sm:mb-10 text-center">
+          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
             Stories &amp; Ideas
           </h1>
-          <p className="mt-2 text-slate-500">
+          <p className="mt-2 text-sm sm:text-base text-slate-500">
             Discover articles from the ByteCanvas community
           </p>
         </div>
 
         {/* Responsive grid: 1 → 2 → 3 → 4 columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
           {posts.map((post) => (
             <PostCard key={post.$id} {...post} />
           ))}

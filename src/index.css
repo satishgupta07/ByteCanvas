@@ -36,29 +36,54 @@ body {
 
 /* ── Rich-text (post content) prose styles ──────────────────────────────────── */
 .prose-content {
-  font-size: 1.0625rem;
-  line-height: 1.85;
+  font-size: 1rem;
+  line-height: 1.75;
   color: #1e293b; /* slate-800 */
+  /* Quill 2 emits paragraphs that depend on whitespace preservation to keep
+     blank lines visible — match the editor's behavior on the public page. */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 640px) {
+  .prose-content {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+  }
 }
 
 .prose-content h1,
 .prose-content h2,
 .prose-content h3,
 .prose-content h4 {
-  margin-top: 1.75em;
+  margin-top: 1.5em;
   margin-bottom: 0.6em;
   font-weight: 700;
   line-height: 1.3;
   color: var(--color-text);
 }
 
-.prose-content h1 { font-size: 2rem; }
-.prose-content h2 { font-size: 1.5rem; }
-.prose-content h3 { font-size: 1.25rem; }
+.prose-content h1 { font-size: 1.625rem; }
+.prose-content h2 { font-size: 1.375rem; }
+.prose-content h3 { font-size: 1.15rem; }
+
+@media (min-width: 640px) {
+  .prose-content h1,
+  .prose-content h2,
+  .prose-content h3,
+  .prose-content h4 { margin-top: 1.75em; }
+  .prose-content h1 { font-size: 2rem; }
+  .prose-content h2 { font-size: 1.5rem; }
+  .prose-content h3 { font-size: 1.25rem; }
+}
 
 .prose-content p {
-  margin-bottom: 1.4em;
+  margin: 0 0 1.2em;
+  min-height: 1em; /* keep empty <p><br></p> blocks visible */
 }
+
+.prose-content p:last-child { margin-bottom: 0; }
 
 .prose-content a {
   color: var(--color-primary);
@@ -88,10 +113,18 @@ body {
   background: #1e293b;
   color: #e2e8f0;
   border-radius: 8px;
-  padding: 1.25em;
+  padding: 1em;
   overflow-x: auto;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   margin: 1.5em 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 640px) {
+  .prose-content pre {
+    padding: 1.25em;
+    font-size: 0.9rem;
+  }
 }
 
 .prose-content code {
@@ -116,6 +149,23 @@ body {
 
 .prose-content li {
   margin-bottom: 0.4em;
+}
+
+/* ── Rich-text editor (Quill) sizing ────────────────────────────────────────── */
+.rte-wrapper .ql-toolbar {
+  flex-wrap: wrap;
+}
+
+.rte-wrapper .ql-container {
+  height: 320px;
+}
+
+@media (min-width: 640px) {
+  .rte-wrapper .ql-container { height: 380px; }
+}
+
+@media (min-width: 1024px) {
+  .rte-wrapper .ql-container { height: 420px; }
 }
 
 /* ── Custom scrollbar ───────────────────────────────────────────────────────── */

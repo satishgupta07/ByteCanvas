@@ -26,10 +26,10 @@ function AllPosts() {
   if (loading) return <Loader />;
 
   return (
-    <div className="py-12">
+    <div className="py-8 sm:py-12">
       <Container>
         {/* Page header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
           <div>
             <h1 className="text-2xl font-bold text-slate-900">My Posts</h1>
             <p className="mt-1 text-sm text-slate-500">
@@ -78,7 +78,7 @@ function AllPosts() {
             <p className="text-slate-500 text-sm">No posts yet. Start writing!</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
             {posts.map((post) => (
               <PostCard key={post.$id} {...post} />
             ))}

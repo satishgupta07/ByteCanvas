@@ -36,7 +36,7 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
         </label>
       )}
 
-      <div className="rounded-lg overflow-hidden border border-slate-300 focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-100 transition-all duration-200">
+      <div className="rte-wrapper rounded-lg overflow-hidden border border-slate-300 focus-within:border-indigo-500 focus-within:ring-2 focus-within:ring-indigo-100 transition-all duration-200">
         <Controller
           name={name || "content"}
           control={control}
@@ -47,7 +47,6 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
               onChange={onChange}
               modules={modules}
               formats={formats}
-              style={{ height: 420 }}
             />
           )}
         />

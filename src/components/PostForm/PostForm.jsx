@@ -94,7 +94,7 @@ export default function PostForm({ post }) {
         </div>
       )}
 
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
         {/* ── Left column: content ─────────────────────────────────────────── */}
         <div className="flex-1 space-y-5">
           <Input
@@ -123,7 +123,7 @@ export default function PostForm({ post }) {
         </div>
 
         {/* ── Right column: meta ───────────────────────────────────────────── */}
-        <div className="w-full lg:w-72 xl:w-80 space-y-5">
+        <div className="w-full lg:w-72 xl:w-80 space-y-5 lg:flex-shrink-0">
           {/* Featured image upload */}
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1.5">
@@ -146,7 +146,7 @@ export default function PostForm({ post }) {
           {post && (
             <div className="rounded-xl overflow-hidden border border-slate-200">
               <img
-                src={appwriteService.getFileView(post.featuredImage)}
+                src={appwriteService.getFilePreview(post.featuredImage)}
                 alt={post.title}
                 className="w-full object-cover"
               />
