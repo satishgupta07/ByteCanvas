@@ -45,7 +45,7 @@ export default function Post() {
         {/* ── Featured image ───────────────────────────────────────────────── */}
         <div className="relative mb-6 sm:mb-8 rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
           <img
-            src={appwriteService.getFilePreview(post.featuredImage)}
+            src={appwriteService.getFileView(post.featuredImage)}
             alt={post.title}
             className="w-full h-auto max-h-[260px] sm:max-h-[360px] md:max-h-[480px] object-cover"
           />
